@@ -6,35 +6,36 @@
 /*   By: phudyka <phudyka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 11:24:46 by phudyka           #+#    #+#             */
-/*   Updated: 2023/11/14 15:53:13 by phudyka          ###   ########.fr       */
+/*   Updated: 2023/11/14 15:52:49 by phudyka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp" 
 
 int main(void)
 {
-    ClapTrap clap(ORANGE "CL4P" RESET);
+    // ClapTrap clap(ORANGE "CL4P" RESET);
+    // std::cout << std::endl;
+    // std::cout << clap << std::endl;
+    // clap.attack(RED "target" RESET);
+    // clap.takeDamage(3);
+    // clap.beRepaired(2);
+    // std::cout << clap << std::endl;
 
-	std::cout << std::endl;
-    clap.attack(RED "target" RESET);
-    clap.takeDamage(3);
-    clap.beRepaired(2);
-	std::cout << std::endl;
-    clap.attack(RED "DJ Khaled" RESET);
-    clap.takeDamage(5);
-    clap.beRepaired(3);
-	std::cout << std::endl;
-    clap.attack(RED "Another One" RESET);
-    clap.takeDamage(12);
-    clap.beRepaired(4); 
-	std::cout << std::endl;
+    // ScavTrap scav(BLUE "5CAV" RESET);
+    // std::cout << scav << std::endl;
+    // scav.guardGate();
+    // std::cout << std::endl;
+
+    FragTrap frag(YELLOW "K-B00M" RESET);
+    std::cout << frag << std::endl;
+    frag.highFivesGuys();
+    frag.attack(RED "target" RESET);
+    frag.takeDamage(20);
+    frag.beRepaired(10);
+    std::cout << frag << std::endl;
 
     return (0);
 }
-
-
-
-
-
-
