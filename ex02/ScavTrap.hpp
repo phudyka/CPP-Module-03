@@ -6,7 +6,7 @@
 /*   By: phudyka <phudyka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 16:23:56 by phudyka           #+#    #+#             */
-/*   Updated: 2023/11/14 11:43:33 by phudyka          ###   ########.fr       */
+/*   Updated: 2023/12/07 16:45:52 by phudyka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,13 @@
 class ScavTrap : public ClapTrap
 {
 	public:
-		ScavTrap(std::string name);
+		ScavTrap(const std::string Name);
+		ScavTrap(const ScavTrap &other);
+		ScavTrap& operator=(const ScavTrap &other);
 		~ScavTrap();
 
-    void	guardGate();
+	void	attack(const std::string& target);
+	void	guardGate(void);
 };
 
 #endif

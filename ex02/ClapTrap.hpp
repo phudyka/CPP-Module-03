@@ -6,7 +6,7 @@
 /*   By: phudyka <phudyka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 11:24:56 by phudyka           #+#    #+#             */
-/*   Updated: 2023/11/14 15:49:32 by phudyka          ###   ########.fr       */
+/*   Updated: 2023/12/07 16:42:50 by phudyka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,28 @@
 # define ORANGE	"\033[1;38;5;208m"
 # define RESET	"\033[0m"
 
-class ClapTrap
+class	ClapTrap
 {
 	protected:
 		std::string		Name;
 		unsigned int	HitPoints;
 		unsigned int	EnergyPoints;
 		unsigned int	AttackDamage;
-	
 	public:
-	ClapTrap(std::string name);
-    ClapTrap(std::string name, unsigned int hitPoints, unsigned int energyPoints, unsigned int attackDamage);
-	~ClapTrap();
+		ClapTrap(std::string Name);
+		ClapTrap(const ClapTrap &other);
+		ClapTrap &operator=(const ClapTrap &other);
+		virtual ~ClapTrap();
+		std::string getName() const;
+		unsigned int getHitPoints() const;
+		unsigned int getEnergyPoints() const;
 
 	void	attack(const std::string& target);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
-
-	friend	std::ostream &operator<<(std::ostream &out, const ClapTrap &clapTrap);
 };
+
+std::ostream	&operator<<( std::ostream &os, const ClapTrap &clap);
+
 
 #endif

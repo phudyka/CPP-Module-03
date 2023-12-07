@@ -6,7 +6,7 @@
 /*   By: phudyka <phudyka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 11:24:49 by phudyka           #+#    #+#             */
-/*   Updated: 2023/11/10 16:11:46 by phudyka          ###   ########.fr       */
+/*   Updated: 2023/12/07 16:40:41 by phudyka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,12 @@ ClapTrap::ClapTrap(std::string name)
 ClapTrap::~ClapTrap()
 {
     std::cout << "ClapTrap " << Name << " says goodbye, I'm out!" << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap &other)
+    : Name(other.Name), HitPoints(other.HitPoints), EnergyPoints(other.EnergyPoints), AttackDamage(other.AttackDamage)
+{
+    std::cout << "ClapTrap " << Name << " is cloned!" << std::endl;
 }
 
 void ClapTrap::attack(const std::string &target)
@@ -63,4 +69,37 @@ void ClapTrap::beRepaired(unsigned int amount)
         std::cout << "ClapTrap " << Name << " can't be repaired, no hit points left!" << std::endl;
     else
         std::cout << "ClapTrap " << Name << " has no energy left to repair!" << std::endl;
+}
+
+ClapTrap& ClapTrap::operator=(const ClapTrap &other)
+{
+	if (this != &other)
+	{
+        this->Name = other.Name;
+        this->HitPoints = other.HitPoints;
+        this->EnergyPoints = other.EnergyPoints;
+        this->AttackDamage = other.AttackDamage;
+    }
+    return (*this);
+}
+
+std::string ClapTrap::getName() const
+{
+    return (Name);
+}
+
+unsigned int ClapTrap::getHitPoints() const
+{
+    return (HitPoints);
+}
+
+unsigned int ClapTrap::getEnergyPoints() const
+{
+    return (EnergyPoints);
+}
+
+std::ostream& operator<<(std::ostream& os, const ClapTrap& clap)
+{
+    os << "ClapTrap: " << clap.getName() << " HP: " << clap.getHitPoints() << " EP: " << clap.getEnergyPoints();
+    return os;
 }

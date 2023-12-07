@@ -6,7 +6,7 @@
 /*   By: phudyka <phudyka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 11:24:46 by phudyka           #+#    #+#             */
-/*   Updated: 2023/12/05 15:08:33 by phudyka          ###   ########.fr       */
+/*   Updated: 2023/12/07 17:22:45 by phudyka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int main(void)
 {
-    ClapTrap clap(ORANGE "CL4P" RESET);
+	ClapTrap clap( ORANGE "CL4P" RESET);
     std::cout << std::endl;
     std::cout << clap << std::endl;
     clap.attack(RED "target" RESET);
@@ -32,10 +32,9 @@ int main(void)
     FragTrap frag(YELLOW "K-B00M" RESET);
     std::cout << frag << std::endl;
     frag.highFivesGuys();
-    frag.attack(RED "target" RESET);
+    frag.attack(RED "target 2" RESET);
     frag.takeDamage(20);
     frag.beRepaired(10);
     std::cout << frag << std::endl;
-
     return (0);
 }

@@ -6,15 +6,27 @@
 /*   By: phudyka <phudyka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 11:19:46 by phudyka           #+#    #+#             */
-/*   Updated: 2023/11/14 15:51:23 by phudyka          ###   ########.fr       */
+/*   Updated: 2023/12/07 17:19:44 by phudyka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 100, 30)
+FragTrap::FragTrap(const std::string name)
+	: ClapTrap(name)
 {
-    std::cout << "FragTrap " << Name << " is ready to frag!" << std::endl;
+	this->Name = name;
+	this->HitPoints = 100;
+	this->EnergyPoints = 100;
+	this->AttackDamage = 30;
+	std::cout << "FragTrap " << Name << " is here to High Five!" << std::endl;
+}
+
+FragTrap::FragTrap(FragTrap const &src) : ClapTrap(Name)
+{
+	std::cout << "Copy constructor for FragTrap called" << std::endl;
+	*this = src;
+	return ;
 }
 
 FragTrap::~FragTrap()
@@ -24,5 +36,12 @@ FragTrap::~FragTrap()
 
 void FragTrap::highFivesGuys(void)
 {
-    std::cout << "FragTrap " << Name << " requests a positive high five from everyone!" << std::endl;
+    std::cout << "FragTrap " << Name << " requests a high five from everyone!" << std::endl;
+}
+
+FragTrap	&FragTrap::operator=(FragTrap const &rhs)
+{
+	std::cout << "Assignement operator called" << std::endl;
+	std::cout << rhs << std::endl;
+	return (*this);
 }
